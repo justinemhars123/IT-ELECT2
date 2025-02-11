@@ -1,0 +1,53 @@
+<?php
+// Define Department Class
+class Department {
+    public $name;
+    public $employees = [];
+
+    public function __construct($name) {
+        $this->name = $name;
+    }
+
+    public function addEmployee($employee) {
+        $this->employees[] = $employee;
+    }
+}
+
+// Define Employee Class
+class Employee {
+    public $name;
+    public $position;
+    public $salary;
+
+    public function __construct($name, $position, $salary) {
+        $this->name = $name;
+        $this->position = $position;
+        $this->salary = $salary;
+    }
+}
+
+// Create Departments
+$departments = [
+    "IT" => new Department("IT Department"),
+    "HR" => new Department("Human Resources"),
+    "Finance" => new Department("Finance Department")
+];
+
+// Add Employees to Departments
+$departments["IT"]->addEmployee(new Employee("John Doe", "Software Engineer", 60000));
+$departments["IT"]->addEmployee(new Employee("Jane Smith", "System Analyst", 55000));
+
+$departments["HR"]->addEmployee(new Employee("Alice Brown", "HR Manager", 50000));
+
+$departments["Finance"]->addEmployee(new Employee("Robert White", "Accountant", 48000));
+
+// Display Data
+foreach ($departments as $department) {
+    echo "<h3>{$department->name}</h3>";
+    echo "<ul>";
+    foreach ($department->employees as $employee) {
+        echo "<li>{$employee->name} - {$employee->position} - \${$employee->salary}</li>";
+    }
+    echo "</ul>";
+}
+?>
