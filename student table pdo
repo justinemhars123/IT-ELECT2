@@ -1,0 +1,11 @@
+CREATE TABLE students (
+    student_id INTEGER NOT NULL AUTO_INCREMENT,
+    firstname VARCHAR(128),
+    lastname VARCHAR(128),
+    course VARCHAR(128),
+    address VARCHAR(255),
+    dob DATE,
+    PRIMARY KEY(student_id)
+) ENGINE=InnoDB CHARSET=utf8;
+
+ALTER TABLE students ADD COLUMN serialized_data TEXT;
